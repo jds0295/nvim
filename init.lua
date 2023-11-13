@@ -1,5 +1,6 @@
 require('plugins')
 require('file-explorer')
+require('pageheader')
 require('terminal')
 require('statusbar')
 require('mason-config')
