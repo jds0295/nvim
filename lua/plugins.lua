@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = {
-			'kyadzani42/nvim-web-devicons', opt = true
+			'nvim-tree/nvim-web-devicons', opt = true
 		}
 	}
 
@@ -46,6 +46,9 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- bufferline for open buffers in tabs
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+
 	-- Telescope for search
 	use {
 		'nvim-telescope/telescope.nvim',
@@ -58,7 +61,6 @@ return require('packer').startup(function(use)
 	
 	-- Themes 
 	use 'Mofiqul/dracula.nvim'
-
 
 end)
 
