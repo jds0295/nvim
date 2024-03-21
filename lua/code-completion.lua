@@ -4,6 +4,7 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 local cmp = require'cmp'
+local cmp_enabled = false
 
 cmp.setup({
 	-- Configurations
@@ -14,7 +15,7 @@ cmp.setup({
 		{ name = 'nvim_lsp_signature_help' },
 		{ name = 'nvim_lua', keyword_length = 2},
 		{ name = 'buffer',keyword_length = 2 },
-		{ name = 'vsnip', keyword_length = 2},
+		{ name = 'vsnip', keyword_length = 2}
 	},
 	-- formatting
 	formatting = {
@@ -44,8 +45,29 @@ cmp.setup({
 		['<CR>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
 			select = true,
-		}) -- insert the cirrently selected suggesion
+		}) -- insert the currently selected suggesion
 
 	},
-	
+	-- toggel cmp
+	enabled = function()
+		return cmp_enabled
+	end
+
 })
+
+	-- Function to enable code completion
+	function _G.toggle_cmp()
+	  if cmp_enabled then
+	    -- If nvim-cmp is enabled, disable it
+	    require'cmp'.setup.buffer { enabled = false }
+	    cmp_enabled = false
+	  else
+	    -- If nvim-cmp is disabled, enable it
+	    require'cmp'.setup.buffer { enabled = true }
+	    cmp_enabled = true
+	  end
+	end
+
+	--Bind the finction to a key
+	vim.api.nvim_set_keymap('n', '<F5>', ':lua toggle_cmp()<CR>', { noremap = true, silent = true })
+	

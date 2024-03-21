@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-buffer' -- buffer words
 	use 'hrsh7th/vim-vsnip'
 
+	-- Codeium - AI code completion
+	use 'Exafunction/codeium.vim'
+
 	-- autopairs, auto complete brackets
 	use {
 		"windwp/nvim-autopairs",
