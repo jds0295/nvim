@@ -28,6 +28,14 @@ return require('packer').startup(function(use)
 		"windwp/nvim-autopairs",
     		config = function() require("nvim-autopairs").setup {} end -- from 'require' should be in its own file for extended config and current format
 	}
+	
+	-- surround, adding brackets, quotes around selected text
+	use {
+	    "kylechui/nvim-surround",
+	    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+	    config = function()
+	    end
+	}
 
 	-- Treesitter for better syntax highlighting
 	use {

@@ -10,6 +10,7 @@ map('n', 'n', [[:NvimTreeToggle<CR>]], {})
 -- map the key `t` to run the command :ToggleTermToggleAll
 map('n', 't', [[:ToggleTerm<CR>]], {})
 map('i', '<C-t>', [[:ToggleTerm<CR>]], {})
+map('t', '<Esc>', [[<C-\><C-n>]], {})
 
 -- map the hjkl keys + ctrl to move between windows in i, n and t modes
 map('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
