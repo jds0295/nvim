@@ -5,7 +5,7 @@ vim.o.termguicolors = true
 --require("bufferline").setup{}
 require('bufferline').setup{
 	options = {
- 		mode = 'buffers',
+ 		mode = 'tabs',
  		diagnostics = 'coc',
  		offsets = {
  			{

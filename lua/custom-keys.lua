@@ -4,11 +4,11 @@ local map = vim.api.nvim_set_keymap
 -- Change leader key
 vim.g.mapleader = ' '
 
--- map the key `n` to run the command :NvimTreeToggle
-map('n', 'n', [[:NvimTreeToggle<CR>]], {})
+-- map the leader `n` to run the command :NvimTreeToggle
+map('n', '<leader>n', [[:NvimTreeToggle<CR>]], {})
 
--- map the key `t` to run the command :ToggleTermToggleAll
-map('n', 't', [[:ToggleTerm<CR>]], {})
+-- map the leader `t` to run the command :ToggleTermToggleAll
+map('n', '<leader>t', [[:ToggleTerm<CR>]], {})
 map('i', '<C-t>', [[:ToggleTerm<CR>]], {})
 map('t', '<Esc>', [[<C-\><C-n>]], {})
 

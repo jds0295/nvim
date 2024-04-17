@@ -4,7 +4,7 @@ vim.opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 local cmp = require'cmp'
-local cmp_enabled = false
+cmp_enabled = false
 
 cmp.setup({
 	-- Configurations
@@ -38,7 +38,7 @@ cmp.setup({
 	},
 	-- Mappings 
 	mapping = {
-		['<C-Space>'] = cmp.mapping.complete(), -- to bring up the code completion at current cursor
+		['<M-Space>'] = cmp.mapping.complete(), -- to bring up the code completion at current cursor
 		['<Tab>'] = cmp.mapping.select_next_item(), -- Move to next previous entry in the list
 		['<S-Tab>'] = cmp.mapping.select_prev_item(), -- Move to previous entry in the list
 		['<C-e>'] = cmp.mapping.close(), -- to close the text complete popup
@@ -68,6 +68,6 @@ cmp.setup({
 	  end
 	end
 
-	--Bind the finction to a key
+	--Bind the function to a key
 	vim.api.nvim_set_keymap('n', '<F5>', ':lua toggle_cmp()<CR>', { noremap = true, silent = true })
 	

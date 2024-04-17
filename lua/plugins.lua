@@ -24,7 +24,13 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/vim-vsnip'
 
 	-- Codeium - AI code completion
-	use 'Exafunction/codeium.vim'
+	use { "Exafunction/codeium.vim" }
+
+	-- copilot - AI code completion from Microsoft
+	use { "github/copilot.vim" }
+
+	-- GitSigns for git stuff
+	use { "lewis6991/gitsigns.nvim" }
 
 	-- autopairs, auto complete brackets
 	use {
@@ -38,6 +44,17 @@ return require('packer').startup(function(use)
 	    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
 	    config = function()
 	    end
+	}
+
+	-- Commenting
+	use {
+		'numToStr/Comment.nvim',
+			require('Comment').setup({
+				toggler = {
+					line = 'gcc',
+					block = 'gbc',
+				},
+		})
 	}
 
 	-- Treesitter for better syntax highlighting
@@ -57,8 +74,27 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	-- Which key for displaying keybindings
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
+		end
+	}
+
+	-- vim-tmux-navigator for seamless integration with tmux
+	use {
+		'christoomey/vim-tmux-navigator'
+	}
+
 	-- bufferline for open buffers in tabs
-	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'	   }
 
 	-- Telescope for search
 	use {
